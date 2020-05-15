@@ -1,0 +1,30 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: blaise-website-ingress
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    nginx.ingress.kubernetes.io/configuration-snippet: |
+        real_ip_header CF-Connecting-IP;
+spec:
+  tls:
+  - hosts:
+    - blaisewallet.com
+    - www.blaisewallet.com
+    secretName: blaisewallet-com-server-secret
+  rules:
+  - host: blaisewallet.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: blaise-website
+          servicePort: 80
+  - host: www.blaisewallet.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: blaise-website
+          servicePort: 80

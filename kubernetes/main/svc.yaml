@@ -1,0 +1,11 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: blaise-website
+spec:
+  selector:
+      app: blaise-website
+  type: ClusterIP
+  ports:
+    - port: 80
+      targetPort: 80

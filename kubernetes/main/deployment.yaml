@@ -1,0 +1,21 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: blaise-website
+  labels:
+    app: blaise-website
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: blaise-website
+  template:
+    metadata:
+      labels:
+        app: blaise-website
+    spec:
+      containers:
+      - name: blaise-website
+        image: replaceme
+        ports:
+          - containerPort: 80
