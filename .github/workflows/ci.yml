@@ -45,7 +45,7 @@ jobs:
 
       - name: Build and tag
         if: success()
-        run: docker build -t appditto/blaise-help-website:${BRANCH_NAME}-${{ env.GITHUB_RUN_ID }} help.natrium.io
+        run: docker build -t appditto/blaise-help-website:${BRANCH_NAME}-${{ env.GITHUB_RUN_ID }} help.blaisewallet.com
 
       - name: Push image   
         if: success()
