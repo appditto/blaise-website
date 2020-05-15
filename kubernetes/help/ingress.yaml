@@ -11,17 +11,9 @@ spec:
   tls:
   - hosts:
     - help.blaisewallet.com
-    - www.help.blaisewallet.com
     secretName: help-blaisewallet-com-server-secret
   rules:
   - host: help.blaisewallet.com
-    http:
-      paths:
-      - path: /
-        backend:
-          serviceName: blaise-support-website
-          servicePort: 80
-  - host: www.help.blaisewallet.com
     http:
       paths:
       - path: /
